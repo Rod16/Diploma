@@ -4,6 +4,7 @@ import "@nativescript/firebase-auth";
 import "@nativescript/firebase-storage";
 import { Router } from "@angular/router";
 import { RouterExtensions } from "@nativescript/angular";
+import { setTextSync } from "nativescript-clipboard";
 
 @Component({
   selector: "Book",
@@ -43,7 +44,7 @@ export class BookComponent implements OnInit {
       });
     });
 
-    this.url.then((url) => console.log("dm,fgndf,gmfdn,", url))
+    this.url.then((url) => setTextSync(url));
   }
 
   goBack() {
