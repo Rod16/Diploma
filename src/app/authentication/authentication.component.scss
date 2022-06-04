@@ -1,0 +1,46 @@
+.page {
+  align-items: center;
+  flex-direction: column;
+  background-color: #1c3334;
+}
+
+.form {
+  margin-left: 30;
+  margin-right: 30;
+  flex-grow: 2;
+  vertical-align: middle;
+}
+
+.input {
+  font-size: 15em;
+  border-bottom-color: #54aaab;
+  placeholder-color: #fff;
+  padding-bottom: 5%;
+}
+
+.btn {
+  height: 9%;
+  margin: 1%;
+  font-weight: bold;
+  border-radius: 20%;
+  font-size: 20;
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: #54aaab;
+}
+
+.btn-secondary {
+  border-color: #54aaab;
+  background-color: #1c3334;
+  border-width: 2em;
+}
+
+.input-field {
+  margin: 3%;
+}
+
+.input-bottom {
+  margin-bottom: 7%;
+}

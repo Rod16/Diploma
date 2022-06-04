@@ -8,44 +8,57 @@ import {
 } from 'nativescript-ui-sidedrawer'
 import { filter } from 'rxjs/operators'
 import { Application } from '@nativescript/core'
+import { firebase } from '@nativescript/firebase-core'
 
 @Component({
-  selector: 'ns-app',
-  templateUrl: 'app.component.html',
+  selector: "ns-app",
+  templateUrl: "app.component.html",
 })
 export class AppComponent implements OnInit {
-  private _activatedUrl: string
-  private _sideDrawerTransition: DrawerTransitionBase
+  settings = firebase().firestore().collection("settings");
+  language: string;
+  private _activatedUrl: string;
+  private _sideDrawerTransition: DrawerTransitionBase;
 
-  constructor(private router: Router, private routerExtensions: RouterExtensions) {
+  constructor(
+    private router: Router,
+    private routerExtensions: RouterExtensions
+  ) {
     // Use the component constructor to inject services.
   }
 
   ngOnInit(): void {
-    this._activatedUrl = '/home'
-    this._sideDrawerTransition = new SlideInOnTopTransition()
+    this._activatedUrl = "/auth";
+    this._sideDrawerTransition = new SlideInOnTopTransition();
 
     this.router.events
       .pipe(filter((event: any) => event instanceof NavigationEnd))
-      .subscribe((event: NavigationEnd) => (this._activatedUrl = event.urlAfterRedirects))
+      .subscribe(
+        (event: NavigationEnd) => (this._activatedUrl = event.urlAfterRedirects)
+    );
+    this.settings.get().then((querySnapshot) => {
+      querySnapshot.forEach((documentSnapshot) => {
+        this.language = documentSnapshot.data().language;
+      });
+    });
   }
 
   get sideDrawerTransition(): DrawerTransitionBase {
-    return this._sideDrawerTransition
+    return this._sideDrawerTransition;
   }
 
   isComponentSelected(url: string): boolean {
-    return this._activatedUrl === url
+    return this._activatedUrl === url;
   }
 
   onNavItemTap(navItemRoute: string): void {
     this.routerExtensions.navigate([navItemRoute], {
       transition: {
-        name: 'fade',
+        name: "fade",
       },
-    })
+    });
 
-    const sideDrawer = <RadSideDrawer>Application.getRootView()
-    sideDrawer.closeDrawer()
+    const sideDrawer = <RadSideDrawer>Application.getRootView();
+    sideDrawer.closeDrawer();
   }
 }

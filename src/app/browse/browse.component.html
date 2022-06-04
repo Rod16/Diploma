@@ -1,13 +1,167 @@
-<ActionBar class="action-bar">
+<ActionBar [ngClass]="theme == 'dark' ? 'action-bar-dark' : 'action-bar-light'">
   <NavigationButton visibility="hidden"></NavigationButton>
   <GridLayout columns="50, *">
-    <Label class="action-bar-title" text="Browse" colSpan="2"></Label>
+    <Label
+      *ngIf="language === 'eng'"
+      class="action-bar-title"
+      text="Add your book"
+      colSpan="2"
+    ></Label>
+    <Label
+      *ngIf="language === 'ua'"
+      class="action-bar-title"
+      text="Додати власну книгу"
+      colSpan="2"
+    ></Label>
 
     <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
   </GridLayout>
 </ActionBar>
 
-<GridLayout class="page__content">
-  <Label class="page__content-icon far" text="&#xf1ea;"></Label>
-  <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<FlexboxLayout
+  class="page"
+  [ngClass]="theme == 'dark' ? 'dark-page' : 'light-page'"
+>
+  <ScrollView orientation="vertical" class="for-background">
+    <FlexboxLayout flexDirection="column" justifyContent="space-around">
+      <StackLayout class="input-field">
+        <TextField
+          *ngIf="language === 'eng'"
+          class="input"
+          [ngClass]="theme == 'dark' ? 'input-dark' : 'input-light'"
+          hint="Title"
+          autocorrect="false"
+          [(ngModel)]="title"
+        >
+        </TextField>
+        <TextField
+          *ngIf="language === 'ua'"
+          class="input"
+          [ngClass]="theme == 'dark' ? 'input-dark' : 'input-light'"
+          hint="Назва"
+          autocorrect="false"
+          [(ngModel)]="title"
+        >
+        </TextField>
+      </StackLayout>
+      <StackLayout class="input-field">
+        <TextField
+          *ngIf="language === 'eng'"
+          class="input"
+          [ngClass]="theme == 'dark' ? 'input-dark' : 'input-light'"
+          hint="Author"
+          autocorrect="false"
+          [(ngModel)]="author"
+        >
+        </TextField>
+        <TextField
+          *ngIf="language === 'ua'"
+          class="input"
+          [ngClass]="theme == 'dark' ? 'input-dark' : 'input-light'"
+          hint="Автор"
+          autocorrect="false"
+          [(ngModel)]="author"
+        >
+        </TextField>
+      </StackLayout>
+      <StackLayout class="input-field">
+        <TextField
+          *ngIf="language === 'eng'"
+          class="input"
+          [ngClass]="theme == 'dark' ? 'input-dark' : 'input-light'"
+          hint="Field"
+          autocorrect="false"
+          [(ngModel)]="field"
+        >
+        </TextField>
+        <TextField
+          *ngIf="language === 'ua'"
+          class="input"
+          [ngClass]="theme == 'dark' ? 'input-dark' : 'input-light'"
+          hint="Наукова галузь"
+          autocorrect="false"
+          [(ngModel)]="field"
+        >
+        </TextField>
+      </StackLayout>
+      <StackLayout class="input-field">
+        <TextField
+          *ngIf="language === 'eng'"
+          class="input"
+          [ngClass]="theme == 'dark' ? 'input-dark' : 'input-light'"
+          hint="Country"
+          autocorrect="false"
+          [(ngModel)]="country"
+        >
+        </TextField>
+        <TextField
+          *ngIf="language === 'ua'"
+          class="input"
+          [ngClass]="theme == 'dark' ? 'input-dark' : 'input-light'"
+          hint="Країна"
+          autocorrect="false"
+          [(ngModel)]="country"
+        >
+        </TextField>
+      </StackLayout>
+
+      <StackLayout class="input-field">
+        <TextField
+          *ngIf="language === 'eng'"
+          class="input"
+          [ngClass]="theme == 'dark' ? 'input-dark' : 'input-light'"
+          hint="Year"
+          keyboardType="number"
+          autocorrect="false"
+          [(ngModel)]="year"
+        >
+        </TextField>
+        <TextField
+          *ngIf="language === 'ua'"
+          class="input"
+          [ngClass]="theme == 'dark' ? 'input-dark' : 'input-light'"
+          hint="Рік"
+          keyboardType="number"
+          autocorrect="false"
+          [(ngModel)]="year"
+        >
+        </TextField>
+      </StackLayout>
+
+      <StackLayout class="input-field">
+        <TextField
+          *ngIf="language === 'eng'"
+          class="input"
+          [ngClass]="theme == 'dark' ? 'input-dark' : 'input-light'"
+          hint="Description"
+          autocorrect="false"
+          [(ngModel)]="description"
+        >
+        </TextField>
+        <TextField
+          *ngIf="language === 'ua'"
+          class="input"
+          [ngClass]="theme == 'dark' ? 'input-dark' : 'input-light'"
+          hint="Опис"
+          autocorrect="false"
+          [(ngModel)]="description"
+        >
+        </TextField>
+      </StackLayout>
+      <Button
+        *ngIf="language === 'eng'"
+        class="btn"
+        [ngClass]="theme == 'dark' ? 'btn-dark' : 'btn-light'"
+        text="Add"
+        (tap)="addBook()"
+      ></Button>
+      <Button
+        *ngIf="language === 'ua'"
+        class="btn"
+        [ngClass]="theme == 'dark' ? 'btn-dark' : 'btn-light'"
+        text="Додати"
+        (tap)="addBook()"
+      ></Button>
+    </FlexboxLayout>
+  </ScrollView>
+</FlexboxLayout>

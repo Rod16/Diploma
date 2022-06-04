@@ -14,6 +14,10 @@
     "@angular/router": "~13.2.0",
     "@nativescript/angular": "^13.0.0",
     "@nativescript/core": "~8.2.0",
+    "@nativescript/firebase-auth": "^2.0.2",
+    "@nativescript/firebase-core": "^2.0.2",
+    "@nativescript/firebase-firestore": "^2.0.2",
+    "@nativescript/firebase-storage": "^2.0.2",
     "@nativescript/theme": "~3.0.2",
     "nativescript-ui-sidedrawer": "~10.0.2",
     "rxjs": "~7.5.0",
@@ -22,6 +26,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.2.0",
     "@angular/compiler-cli": "~13.2.0",
+    "@nativescript/android": "8.2.3",
     "@nativescript/types": "~8.2.0",
     "@nativescript/webpack": "~5.0.6",
     "@ngtools/webpack": "~13.2.0",

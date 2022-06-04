@@ -1,13 +1,40 @@
-<ActionBar class="action-bar">
+<ActionBar [ngClass]="theme == 'dark' ? 'action-bar-dark' : 'action-bar-light'">
   <NavigationButton visibility="hidden"></NavigationButton>
   <GridLayout columns="50, *">
-    <Label class="action-bar-title" text="Featured" colSpan="2"></Label>
+    <Label *ngIf="language === 'eng'" class="action-bar-title" text="Bookmarks" colSpan="2"></Label>
+    <Label *ngIf="language === 'ua'" class="action-bar-title" text="Закладки" colSpan="2"></Label>
 
     <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
   </GridLayout>
 </ActionBar>
 
-<GridLayout class="page__content">
-  <Label class="page__content-icon fas" text="&#xf005;"></Label>
-  <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<FlexboxLayout
+  class="page"
+  [ngClass]="theme == 'dark' ? 'dark-page' : 'light-page'"
+>
+  <ListView
+    [items]="booksArray"
+    class="list-group"
+    (itemTap)="bookChosen($event)"
+  >
+    <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+      <!-- The item template can only have a single root view container (e.g. GridLayout, StackLayout, etc.)-->
+      <GridLayout
+        columns="*, auto, *"
+        rows="auto, auto, *"
+        class="list-group-item"
+      >
+        <Label
+          class="title"
+          row="0"
+          col="0"
+          colSpan="3"
+          [text]="item.title"
+        ></Label>
+        <Label class="field" row="1" col="0" [text]="item.field"></Label>
+        <Label class="year" row="1" col="1" [text]="item.year"></Label>
+        <Label class="author" row="1" col="2" [text]="item.author"></Label>
+      </GridLayout>
+    </ng-template>
+  </ListView>
+</FlexboxLayout>

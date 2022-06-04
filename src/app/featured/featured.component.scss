@@ -1,0 +1,90 @@
+* {
+  color: #000;
+  --dark-bg-color: #1c3334;
+  --light-bg-color: #dbf8c3;
+}
+
+.page {
+  align-items: center;
+  flex-direction: column;
+  //background-color: #1c3334;
+}
+
+.action-bar-title {
+  font-weight: bold;
+  font-size: 17;
+}
+
+.action-bar-dark {
+  background-color: var(--light-bg-color);
+  .action-bar-title {
+    color: var(--dark-bg-color);
+  }
+
+  .fas {
+    color: var(--dark-bg-color);
+  }
+}
+
+.action-bar-light {
+  background-color: var(--dark-bg-color);
+  .action-bar-title {
+    color: var(--light-bg-color);
+  }
+
+  .fas {
+    color: var(--light-bg-color);
+  }
+}
+
+.dark-page {
+  background-color: var(--dark-bg-color);
+}
+
+.light-page {
+  background-color: var(--light-bg-color);
+}
+
+.title {
+  white-space: normal;
+  text-align: center;
+  font-size: 17;
+  font-weight: bold;
+}
+
+.author {
+  white-space: normal;
+  text-align: right;
+  font-size: 15;
+  font-weight: bold;
+  margin-top: 45px;
+  margin-right: 30px;
+}
+
+.year {
+  white-space: normal;
+  text-align: center;
+  font-size: 15;
+  font-weight: bold;
+  margin-top: 45px;
+}
+
+.field {
+  white-space: normal;
+  text-align: left;
+  font-size: 17;
+  font-weight: bold;
+  margin-top: 45px;
+  margin-left: 30px;
+}
+
+.list-group {
+  width: 90%;
+}
+
+.list-group-item {
+  background-color: #fff;
+  border-radius: 20px;
+  border-color: black;
+  border-width: 3;
+}

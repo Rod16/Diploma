@@ -1,0 +1,180 @@
+<ActionBar [ngClass]="theme == 'dark' ? 'action-bar-dark' : 'action-bar-light'">
+  <NavigationButton
+    text="Go Back"
+    android.systemIcon="ic_menu_back"
+    (tap)="goBack()"
+  ></NavigationButton>
+  <GridLayout columns="50, *">
+    <Label *ngIf="language === 'eng'" class="action-bar-title" text="Book Page" colSpan="2"></Label>
+    <Label *ngIf="language === 'ua'" class="action-bar-title" text="Сторінка книги" colSpan="2"></Label>
+  </GridLayout>
+</ActionBar>
+
+<FlexboxLayout
+  class="page"
+  [ngClass]="theme == 'dark' ? 'dark-page' : 'light-page'"
+>
+  <ListView [items]="myArray" class="list-group">
+    <ng-template let-item="item">
+      <!-- The item template can only have a single root view container (e.g. GridLayout, StackLayout, etc.)-->
+      <GridLayout
+        columns="*, auto, *"
+        rows="auto, *, *, *, *, *, *, *, *"
+        class="list-group-item"
+      >
+        <Label
+          class="title"
+          [ngClass]="theme == 'dark' ? 'title-dark' : 'title-light'"
+          [style.font-size]="size == '20' ? 28 : 25"
+          row="0"
+          col="0"
+          colSpan="3"
+          [text]="item.title"
+        ></Label>
+        <Label
+          *ngIf="language === 'eng'"
+          class="field"
+          [ngClass]="theme == 'dark' ? 'text-dark' : 'text-light'"
+          [style.font-size]="size == '20' ? 20 : 17"
+          row="1"
+          col="0"
+          colSpan="3"
+          [text]="'Scientific field: ' + item.field"
+        ></Label>
+        <Label
+          *ngIf="language === 'ua'"
+          class="field"
+          [ngClass]="theme == 'dark' ? 'text-dark' : 'text-light'"
+          [style.font-size]="size == '20' ? 20 : 17"
+          row="1"
+          col="0"
+          colSpan="3"
+          [text]="'Наукова галузь: ' + item.field"
+        ></Label>
+        <Label
+          *ngIf="language === 'eng'"
+          class="field"
+          [ngClass]="theme == 'dark' ? 'text-dark' : 'text-light'"
+          [style.font-size]="size == '20' ? 20 : 17"
+          row="2"
+          col="0"
+          colSpan="3"
+          [text]="'Author: ' + item.author"
+        ></Label>
+        <Label
+          *ngIf="language === 'ua'"
+          class="field"
+          [ngClass]="theme == 'dark' ? 'text-dark' : 'text-light'"
+          [style.font-size]="size == '20' ? 20 : 17"
+          row="2"
+          col="0"
+          colSpan="3"
+          [text]="'Автор: ' + item.author"
+        ></Label>
+        <Label
+          *ngIf="language === 'eng'"
+          class="field"
+          [ngClass]="theme == 'dark' ? 'text-dark' : 'text-light'"
+          [style.font-size]="size == '20' ? 20 : 17"
+          row="3"
+          col="0"
+          colSpan="3"
+          [text]="'Year: ' + item.year"
+        ></Label>
+        <Label
+          *ngIf="language === 'ua'"
+          class="field"
+          [ngClass]="theme == 'dark' ? 'text-dark' : 'text-light'"
+          [style.font-size]="size == '20' ? 20 : 17"
+          row="3"
+          col="0"
+          colSpan="3"
+          [text]="'Рік: ' + item.year"
+        ></Label>
+        <Label
+          *ngIf="language === 'eng'"
+          class="field"
+          [ngClass]="theme == 'dark' ? 'text-dark' : 'text-light'"
+          [style.font-size]="size == '20' ? 20 : 17"
+          row="4"
+          col="0"
+          colSpan="3"
+          [text]="'Country: ' + item.country"
+        ></Label>
+        <Label
+          *ngIf="language === 'ua'"
+          class="field"
+          [ngClass]="theme == 'dark' ? 'text-dark' : 'text-light'"
+          [style.font-size]="size == '20' ? 20 : 17"
+          row="4"
+          col="0"
+          colSpan="3"
+          [text]="'Країна: ' + item.country"
+        ></Label>
+        <Label
+          *ngIf="language === 'eng'"
+          class="description"
+          [ngClass]="theme == 'dark' ? 'title-dark' : 'title-light'"
+          [style.font-size]="size == '20' ? 23 : 20"
+          row="5"
+          col="0"
+          colSpan="3"
+          [text]="'Description'"
+        ></Label>
+        <Label
+          *ngIf="language === 'ua'"
+          class="description"
+          [ngClass]="theme == 'dark' ? 'title-dark' : 'title-light'"
+          [style.font-size]="size == '20' ? 23 : 20"
+          row="5"
+          col="0"
+          colSpan="3"
+          [text]="'Опис'"
+        ></Label>
+        <Label
+          class="field description-margin"
+          [ngClass]="theme == 'dark' ? 'text-dark' : 'text-light'"
+          [style.font-size]="size == '20' ? 20 : 17"
+          row="6"
+          col="0"
+          colSpan="3"
+          [text]="item.description"
+        ></Label>
+        <Button
+          *ngIf="language === 'eng'"
+          class="btn btn-primary"
+          row="7"
+          col="0"
+          colSpan="3"
+          [text]="'Download'"
+        ></Button>
+        <Button
+          *ngIf="language === 'ua'"
+          class="btn btn-primary"
+          row="7"
+          col="0"
+          colSpan="3"
+          [text]="'Завантажити'"
+        ></Button>
+        <Button
+          *ngIf="language === 'eng'"
+          (tap)="addBook()"
+          class="btn btn-primary"
+          row="8"
+          col="0"
+          colSpan="3"
+          [text]="'Add to bookmarks'"
+        ></Button>
+        <Button
+          *ngIf="language === 'ua'"
+          (tap)="addBook()"
+          class="btn btn-primary"
+          row="8"
+          col="0"
+          colSpan="3"
+          [text]="'Додати до закладок'"
+        ></Button>
+      </GridLayout>
+    </ng-template>
+  </ListView>
+</FlexboxLayout>

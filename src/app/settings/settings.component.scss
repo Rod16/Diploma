@@ -1,0 +1,43 @@
+.action-bar-title {
+  font-weight: bold;
+  font-size: 17;
+}
+
+.list-group-item {
+  align-items: center;
+  flex-direction: column;
+  width: 90%;
+}
+
+.field {
+  white-space: normal;
+  text-align: left;
+  font-size: 17;
+  font-weight: bold;
+  margin-top: 60px;
+  margin-left: 30px;
+}
+
+.btn {
+  height: 7%;
+  margin: 1%;
+  font-weight: bold;
+  border-radius: 20%;
+  font-size: 16;
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: #54aaab;
+}
+
+.btn-secondary {
+  border-color: #54aaab;
+  background-color: #1c3334;
+  border-width: 2em;
+}
+
+.button-margin {
+  margin-top: 120px;
+  width: 90%;
+}

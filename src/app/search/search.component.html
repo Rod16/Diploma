@@ -1,13 +1,61 @@
-<ActionBar class="action-bar">
+<ActionBar [ngClass]="theme == 'dark' ? 'action-bar-dark' : 'action-bar-light'">
   <NavigationButton visibility="hidden"></NavigationButton>
   <GridLayout columns="50, *">
-    <Label class="action-bar-title" text="Search" colSpan="2"></Label>
+    <Label
+      *ngIf="language === 'eng'"
+      class="action-bar-title"
+      text="Search"
+      colSpan="2"
+    ></Label>
+    <Label
+      *ngIf="language === 'ua'"
+      class="action-bar-title"
+      text="Пошук"
+      colSpan="2"
+    ></Label>
 
     <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
   </GridLayout>
 </ActionBar>
 
-<GridLayout class="page__content">
-  <Label class="page__content-icon fas" text="&#xf002;"></Label>
-  <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<FlexboxLayout
+  class="page"
+  [ngClass]="theme == 'dark' ? 'dark-page' : 'light-page'"
+>
+  <ScrollView orientation="vertical" class="for-background">
+    <FlexboxLayout flexDirection="column" justifyContent="space-around">
+      <StackLayout class="input-field">
+        <TextField
+          *ngIf="language === 'eng'"
+          class="input"
+          [ngClass]="theme == 'dark' ? 'input-dark' : 'input-light'"
+          hint="Search"
+          autocorrect="false"
+          [(ngModel)]="search"
+        >
+        </TextField>
+        <TextField
+          *ngIf="language === 'ua'"
+          class="input"
+          [ngClass]="theme == 'dark' ? 'input-dark' : 'input-light'"
+          hint="Шукати"
+          autocorrect="false"
+          [(ngModel)]="search"
+        >
+        </TextField>
+      </StackLayout>
+      <Button
+        *ngIf="language === 'eng'"
+        class="btn"
+        text="Search"
+        [ngClass]="theme == 'dark' ? 'btn-dark' : 'btn-light'"
+      ></Button>
+      <Button
+        *ngIf="language === 'ua'"
+        class="btn"
+        text="Пошук"
+        [ngClass]="theme == 'dark' ? 'btn-dark' : 'btn-light'"
+      ></Button>
+    </FlexboxLayout>
+  </ScrollView>
+</FlexboxLayout>

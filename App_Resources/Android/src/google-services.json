@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "211409367932",
+    "project_id": "booklib-cb6e7",
+    "storage_bucket": "booklib-cb6e7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:211409367932:android:3f393e68db3ca99300eaf9",
+        "android_client_info": {
+          "package_name": "org.nativescript.DiplomaLibrary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "211409367932-79v5ss53b1463qsbi1oku0sc3uor8qu3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.nativescript.DiplomaLibrary",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "211409367932-nftpukd5247fa70rhcmlbt3a29pfn4km.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpbqUFpQ8onaLPYfnw-hz6dACv7lv8p-M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "211409367932-nftpukd5247fa70rhcmlbt3a29pfn4km.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

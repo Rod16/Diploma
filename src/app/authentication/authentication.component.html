@@ -1,0 +1,50 @@
+<FlexboxLayout class="page">
+  <StackLayout class="form">
+    <StackLayout class="input-field" width="100%">
+      <TextField
+        *ngIf="language === 'eng'"
+        class="input"
+        hint="Email"
+        keyboardType="email"
+        autocorrect="false"
+        autocapitalizationType="none"
+        [(ngModel)]="email"
+      >
+      </TextField>
+      <TextField
+        *ngIf="language === 'ua'"
+        class="input"
+        hint="Адреса електронної пошти"
+        keyboardType="email"
+        autocorrect="false"
+        autocapitalizationType="none"
+        [(ngModel)]="email"
+      >
+      </TextField>
+    </StackLayout>
+
+    <StackLayout class="input-field input-bottom" width="100%">
+      <TextField
+        *ngIf="language === 'eng'"
+        class="input"
+        hint="Password"
+        autocorrect="false"
+        autocapitalizationType="none"
+        [(ngModel)]="password"
+      ></TextField>
+      <TextField
+        *ngIf="language === 'ua'"
+        class="input"
+        hint="Пароль"
+        autocorrect="false"
+        autocapitalizationType="none"
+        [(ngModel)]="password"
+      ></TextField>
+    </StackLayout>
+
+    <Button *ngIf="language === 'eng'" text="Sign In" class="btn btn-primary" (tap)="onTap()"></Button>
+    <Button *ngIf="language === 'ua'" text="Авторизуватися" class="btn btn-primary" (tap)="onTap()"></Button>
+    <Button *ngIf="language === 'eng'" text="Sign Up" class="btn btn-secondary" (tap)="signUp()"></Button>
+    <Button *ngIf="language === 'ua'" text="Зареєструватися" class="btn btn-secondary" (tap)="signUp()"></Button>
+  </StackLayout>
+</FlexboxLayout>

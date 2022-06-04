@@ -1,0 +1,144 @@
+* {
+  color: #000;
+  --dark-bg-color: #1c3334;
+  --light-bg-color: #dbf8c3;
+}
+
+.page {
+  align-items: center;
+  flex-direction: column;
+  //background-color: #1c3334;
+}
+
+.action-bar-title {
+  font-weight: bold;
+  font-size: 17;
+}
+
+.action-bar-dark {
+  background-color: var(--light-bg-color);
+  .action-bar-title {
+    color: var(--dark-bg-color);
+  }
+
+  .fas {
+    color: var(--dark-bg-color);
+  }
+}
+
+.action-bar-light {
+  background-color: var(--dark-bg-color);
+  .action-bar-title {
+    color: var(--light-bg-color);
+  }
+
+  .fas {
+    color: var(--light-bg-color);
+  }
+}
+
+.dark-page {
+  background-color: var(--dark-bg-color);
+}
+
+.light-page {
+  background-color: var(--light-bg-color);
+}
+
+.title-light {
+  color: var(--dark-bg-color);
+}
+
+.title-dark {
+  color: var(--light-bg-color);
+}
+
+.text-light {
+  color: #000;
+}
+
+.text-dark {
+  color: #fff;
+}
+
+.input-light {
+  border-bottom-color: var(--dark-bg-color);
+  placeholder-color: #000;
+}
+
+.input-dark {
+  border-bottom-color: var(--light-bg-color);
+  placeholder-color: #fff;
+}
+
+.btn-light {
+  background-color: var(--dark-bg-color);
+  color: var(--light-bg-color);
+}
+
+.btn-dark {
+  background-color: var(--light-bg-color);
+  color: var(--dark-bg-color);
+}
+
+.title-small {
+  font-size: 25;
+}
+
+.title-large {
+  font-size: 28;
+}
+
+.title {
+  white-space: normal;
+  text-align: center;
+  font-size: 25;
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+.description {
+  white-space: normal;
+  text-align: center;
+  font-size: 20;
+  margin-top: 40px;
+  font-weight: bold;
+}
+
+.field {
+  white-space: normal;
+  text-align: left;
+  font-size: 17;
+  margin-top: 65px;
+  margin-left: 30px;
+  line-height: 15px;
+}
+
+.description-margin {
+  margin-top: 40px;
+}
+
+.action-bar-title {
+  margin-right: 150px;
+}
+
+.list-group {
+  width: 100%;
+}
+
+.list-group-item {
+  color: #fff;
+}
+
+.btn {
+  height: 9%;
+  margin-top: 65px;
+  font-weight: bold;
+  border-radius: 20%;
+  font-size: 20;
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: #54aaab;
+}
