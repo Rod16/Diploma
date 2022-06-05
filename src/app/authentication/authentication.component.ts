@@ -3,6 +3,7 @@ import { firebase } from "@nativescript/firebase-core";
 import "@nativescript/firebase-auth";
 import "@nativescript/firebase-firestore";
 import { Router } from "@angular/router";
+import { throwIfAlreadyLoaded } from "@nativescript/angular";
 
 @Component({
   selector: "Auth",
@@ -25,6 +26,11 @@ export class AuthComponent implements OnInit {
         this.language = documentSnapshot.data().language;
       });
     });
+    this.auth.addAuthStateChangeListener((user) => {
+      if (user) {
+        this.router.navigate(["home"])
+      }
+    })
   }
 
   signIn() {

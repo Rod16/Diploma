@@ -43,12 +43,14 @@ export class BookComponent implements OnInit {
         this.theme = documentSnapshot.data().theme;
       });
     });
-
-    this.url.then((url) => setTextSync(url));
   }
 
   goBack() {
     this.routerExtensions.backToPreviousPage();
+  }
+
+  getLink() {
+    this.url.then((url) => setTextSync(url));
   }
 
   addBook() {

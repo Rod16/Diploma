@@ -15,8 +15,10 @@ import { firebase } from '@nativescript/firebase-core'
   templateUrl: "app.component.html",
 })
 export class AppComponent implements OnInit {
+  auth = firebase().auth();
   settings = firebase().firestore().collection("settings");
   language: string;
+  email: string;
   private _activatedUrl: string;
   private _sideDrawerTransition: DrawerTransitionBase;
 
@@ -35,11 +37,16 @@ export class AppComponent implements OnInit {
       .pipe(filter((event: any) => event instanceof NavigationEnd))
       .subscribe(
         (event: NavigationEnd) => (this._activatedUrl = event.urlAfterRedirects)
-    );
+      );
     this.settings.get().then((querySnapshot) => {
       querySnapshot.forEach((documentSnapshot) => {
         this.language = documentSnapshot.data().language;
       });
+    });
+    this.auth.addAuthStateChangeListener((user) => {
+      if (user) {
+        this.email = user.email;
+      }
     });
   }
 

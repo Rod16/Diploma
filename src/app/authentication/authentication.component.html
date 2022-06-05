@@ -42,8 +42,8 @@
       ></TextField>
     </StackLayout>
 
-    <Button *ngIf="language === 'eng'" text="Sign In" class="btn btn-primary" (tap)="onTap()"></Button>
-    <Button *ngIf="language === 'ua'" text="Авторизуватися" class="btn btn-primary" (tap)="onTap()"></Button>
+    <Button *ngIf="language === 'eng'" text="Sign In" class="btn btn-primary" (tap)="signIn()"></Button>
+    <Button *ngIf="language === 'ua'" text="Авторизуватися" class="btn btn-primary" (tap)="signIn()"></Button>
     <Button *ngIf="language === 'eng'" text="Sign Up" class="btn btn-secondary" (tap)="signUp()"></Button>
     <Button *ngIf="language === 'ua'" text="Зареєструватися" class="btn btn-secondary" (tap)="signUp()"></Button>
   </StackLayout>

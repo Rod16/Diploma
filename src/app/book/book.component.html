@@ -142,19 +142,21 @@
         ></Label>
         <Button
           *ngIf="language === 'eng'"
+          (tap)="getLink()"
           class="btn btn-primary"
           row="7"
           col="0"
           colSpan="3"
-          [text]="'Download'"
+          [text]="'Get link to download'"
         ></Button>
         <Button
           *ngIf="language === 'ua'"
+          (tap)="getLink()"
           class="btn btn-primary"
           row="7"
           col="0"
           colSpan="3"
-          [text]="'Завантажити'"
+          [text]="'Отримати посилання для завантаження'"
         ></Button>
         <Button
           *ngIf="language === 'eng'"

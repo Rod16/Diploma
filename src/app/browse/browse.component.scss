@@ -48,11 +48,13 @@
 .input-light {
   border-bottom-color: var(--dark-bg-color);
   placeholder-color: #000;
+  color: #000;
 }
 
 .input-dark {
   border-bottom-color: var(--light-bg-color);
   placeholder-color: #fff;
+  color: #fff;
 }
 
 .btn-light {
@@ -88,11 +90,9 @@
 
 .btn {
   height: 9%;
-  margin: 1%;
   font-weight: bold;
   border-radius: 20%;
   font-size: 20;
-  color: #fff;
 }
 
 .btn-primary {

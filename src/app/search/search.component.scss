@@ -10,6 +10,17 @@
   //background-color: #1c3334;
 }
 
+.list-group {
+  width: 90%;
+}
+
+.list-group-item {
+  background-color: #fff;
+  border-radius: 20px;
+  border-color: black;
+  border-width: 3;
+}
+
 .action-bar-title {
   font-weight: bold;
   font-size: 17;
@@ -58,11 +69,13 @@
 .btn-light {
   background-color: var(--dark-bg-color);
   color: var(--light-bg-color);
+
 }
 
 .btn-dark {
   background-color: var(--light-bg-color);
   color: var(--dark-bg-color);
+
 }
 
 .action-bar-title {
@@ -93,11 +106,10 @@
 
 .btn {
   height: 9%;
-  margin: 1%;
+  margin-bottom: 180px;
   font-weight: bold;
   border-radius: 20%;
   font-size: 20;
-  color: #fff;
 }
 
 .btn-primary {
@@ -115,4 +127,37 @@
   margin-top: 70px;
   border: none;
   padding: 30px;
+}
+
+.title {
+  white-space: normal;
+  text-align: center;
+  font-size: 17;
+  font-weight: bold;
+}
+
+.author {
+  white-space: normal;
+  text-align: right;
+  font-size: 15;
+  font-weight: bold;
+  margin-top: 45px;
+  margin-right: 30px;
+}
+
+.year {
+  white-space: normal;
+  text-align: center;
+  font-size: 15;
+  font-weight: bold;
+  margin-top: 45px;
+}
+
+.field {
+  white-space: normal;
+  text-align: left;
+  font-size: 17;
+  font-weight: bold;
+  margin-top: 45px;
+  margin-left: 30px;
 }
