@@ -16,13 +16,16 @@ export class BrowseComponent implements OnInit {
   country: string;
   year: number;
   description: string;
+  email: string;
   id: number = 1;
   fileArray = [];
 
   location = "books/";
 
+  auth = firebase().auth();
   books = firebase().firestore().collection("books");
   settings = firebase().firestore().collection("settings");
+  currentId = firebase().firestore().collection("id");
   storage = firebase().storage();
   url = this.storage.ref("books/Lytvynenko_bakalavr_1_2.docx").getDownloadURL();
   knownFolders = knownFolders.documents();
@@ -43,6 +46,18 @@ export class BrowseComponent implements OnInit {
         this.theme = documentSnapshot.data().theme;
       });
     });
+
+    this.currentId.get().then((querySnapshot) => {
+      querySnapshot.forEach((documentSnapshot) => {
+        this.id = documentSnapshot.data().id;
+      });
+    });
+
+    this.auth.addAuthStateChangeListener((user) => {
+      if (user) {
+        this.email = user.email;
+      }
+    });
   }
 
   onDrawerButtonTap(): void {
@@ -53,15 +68,19 @@ export class BrowseComponent implements OnInit {
   addBook() {
     this.books
       .add({
-        id: 1,
+        id: this.id,
         title: this.title,
         author: this.author,
         field: this.field,
         country: this.country,
         year: this.year,
         description: this.description,
+        email: this.email,
       })
       .then((value) => {
+        this.currentId.doc("QeJn18EbtF3inORxCPvo").update({
+          id: this.id + 1,
+        });
         if (this.language === "eng") {
           alert("Book Added");
         } else {
