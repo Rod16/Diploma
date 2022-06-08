@@ -15,14 +15,12 @@ export class BookComponent implements OnInit {
   chosenBook = firebase().firestore().collection("chosen");
   bookmarks = firebase().firestore().collection("bookmarks");
   settings = firebase().firestore().collection("settings");
-  url = firebase()
-    .storage()
-    .ref("books/Lytvynenko_bakalavr_1_2.docx")
-    .getDownloadURL();
-  myArray = [];
+  url: Promise<string>;
+  myArray: Array<any> = [];
   language: string;
   theme: string;
   size: string;
+  reference: string;
   settingsArray = [];
   constructor(
     private router: Router,
@@ -33,6 +31,8 @@ export class BookComponent implements OnInit {
     this.chosenBook.get().then((querySnapshot) => {
       querySnapshot.forEach((documentSnapshot) => {
         this.myArray.push(documentSnapshot.data());
+        this.reference = "books/" + documentSnapshot.data().id + ".pdf";
+        this.url = firebase().storage().ref(this.reference).getDownloadURL();
       });
     });
 
@@ -47,6 +47,7 @@ export class BookComponent implements OnInit {
 
   goBack() {
     this.routerExtensions.backToPreviousPage();
+    console.log(this.reference);
   }
 
   getLink() {

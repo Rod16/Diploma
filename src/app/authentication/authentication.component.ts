@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, NgZone, OnInit } from "@angular/core";
 import { firebase } from "@nativescript/firebase-core";
 import "@nativescript/firebase-auth";
 import "@nativescript/firebase-firestore";
@@ -18,7 +18,7 @@ export class AuthComponent implements OnInit {
   user: any;
   email: string;
   password: string;
-  constructor(private router: Router) {}
+  constructor(private router: Router, private zone: NgZone) {}
 
   ngOnInit(): void {
     this.settings.get().then((querySnapshot) => {
@@ -28,9 +28,11 @@ export class AuthComponent implements OnInit {
     });
     this.auth.addAuthStateChangeListener((user) => {
       if (user) {
-        this.router.navigate(["home"])
+        this.zone.run(() => {
+          this.router.navigate(["home"]);
+        });
       }
-    })
+    });
   }
 
   signIn() {

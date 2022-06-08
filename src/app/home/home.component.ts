@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component, NgZone, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { Application, ItemEventData } from "@nativescript/core";
 import { firebase } from "@nativescript/firebase-core";
@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   size: string;
   booksArray = [];
   settingsArray = [];
-  constructor(private router: Router) {
+  constructor(private router: Router, private zone: NgZone) {
     // Use the component constructor to inject providers.
   }
 
@@ -58,7 +58,9 @@ export class HomeComponent implements OnInit {
           alert("Не вдалося додати книгу: " + error);
         }
       });
-    this.router.navigate(["book"]);
+    this.zone.run(() => {
+      this.router.navigate(["book"]);
+    });
   }
 
   signOut(): void {
