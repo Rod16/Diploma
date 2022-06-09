@@ -66,34 +66,49 @@ export class BrowseComponent implements OnInit {
   }
 
   addBook() {
-    this.books
-      .add({
-        id: this.id,
-        title: this.title,
-        author: this.author,
-        field: this.field,
-        country: this.country,
-        year: this.year,
-        description: this.description,
-        email: this.email,
-      })
-      .then((value) => {
-        this.currentId.doc("QeJn18EbtF3inORxCPvo").update({
-          id: this.id + 1,
+    if (
+      this.title &&
+      this.author &&
+      this.field &&
+      this.country &&
+      this.year &&
+      this.description
+    ) {
+      this.books
+        .add({
+          id: this.id,
+          title: this.title,
+          author: this.author,
+          field: this.field,
+          country: this.country,
+          year: this.year,
+          description: this.description,
+          email: this.email,
+        })
+        .then((value) => {
+          this.currentId.doc("QeJn18EbtF3inORxCPvo").update({
+            id: this.id + 1,
+          });
+          if (this.language === "eng") {
+            alert("Book Added");
+          } else {
+            alert("Книгу додано");
+          }
+        })
+        .catch((error) => {
+          if (this.language === "eng") {
+            alert("Failed to add book:" + error);
+          } else {
+            alert("Не вдалося додати книгу: " + error);
+          }
         });
-        if (this.language === "eng") {
-          alert("Book Added");
-        } else {
-          alert("Книгу додано");
-        }
-      })
-      .catch((error) => {
-        if (this.language === "eng") {
-          alert("Failed to add book:" + error);
-        } else {
-          alert("Не вдалося додати книгу: " + error);
-        }
-      });
+    } else {
+      if (this.language === "eng") {
+        alert("Fill in all text fields to add the book");
+      } else {
+        alert("Аби додати книгу, заповніть всі текстові поля");
+      }
+    }
   }
 
   bookName() {
