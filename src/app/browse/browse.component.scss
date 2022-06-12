@@ -18,7 +18,6 @@
 .page {
   align-items: center;
   flex-direction: column;
-  //background-color: #1c3334;
 }
 
 .action-bar-title {
@@ -78,13 +77,6 @@
   color: var(--white);
 }
 
-.form {
-  margin-left: 30;
-  margin-right: 30;
-  flex-grow: 2;
-  vertical-align: middle;
-}
-
 .input {
   font-size: 15em;
   padding-bottom: 5%;
@@ -107,8 +99,6 @@
 }
 
 .for-background {
-  border-radius: 40px;
   margin-top: 70px;
-  border: none;
   padding: 30px;
 }

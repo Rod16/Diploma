@@ -14,13 +14,12 @@
   class="page"
   [ngClass]="theme == 'dark' ? 'dark-page' : 'light-page'"
 >
-  <ListView [items]="myArray" class="list-group">
+  <ListView [items]="myArray">
     <ng-template let-item="item">
       <!-- The item template can only have a single root view container (e.g. GridLayout, StackLayout, etc.)-->
       <GridLayout
         columns="*, auto, *"
         rows="auto, *, *, *, *, *, *, *, *"
-        class="list-group-item"
       >
         <Label
           class="title"

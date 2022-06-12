@@ -18,7 +18,6 @@
 .page {
   align-items: center;
   flex-direction: column;
-  //background-color: #1c3334;
 }
 
 .action-bar-title {
@@ -74,14 +73,6 @@
   color: var(--white);
 }
 
-.title-small {
-  font-size: 25;
-}
-
-.title-large {
-  font-size: 28;
-}
-
 .title {
   white-space: normal;
   text-align: center;
@@ -113,14 +104,6 @@
 
 .action-bar-title {
   margin-right: 150px;
-}
-
-.list-group {
-  width: 100%;
-}
-
-.list-group-item {
-  color: #fff;
 }
 
 .btn {
