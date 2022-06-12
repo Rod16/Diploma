@@ -16,7 +16,6 @@ export class SettingsComponent implements OnInit {
   theme: string;
   size: string;
   constructor(private router: Router) {
-    // Use the component constructor to inject providers.
   }
 
   ngOnInit(): void {
@@ -40,7 +39,7 @@ export class SettingsComponent implements OnInit {
       .update({
         theme: "light",
       })
-      .then((value) => {
+      .then(() => {
         if (this.language === "eng") {
           alert("Light theme");
         } else {
@@ -63,7 +62,7 @@ export class SettingsComponent implements OnInit {
       .update({
         theme: "dark",
       })
-      .then((value) => {
+      .then(() => {
         if (this.language === "eng") {
           alert("Dark theme");
         } else {
@@ -86,7 +85,7 @@ export class SettingsComponent implements OnInit {
       .update({
         size: "17",
       })
-      .then((value) => {
+      .then(() => {
         if (this.language === "eng") {
           alert("Small font size");
         } else {
@@ -108,7 +107,7 @@ export class SettingsComponent implements OnInit {
       .update({
         size: "20",
       })
-      .then((value) => {
+      .then(() => {
         if (this.language === "eng") {
           alert("Large font size");
         } else {
@@ -130,7 +129,7 @@ export class SettingsComponent implements OnInit {
       .update({
         language: "eng",
       })
-      .then((value) => {
+      .then(() => {
         alert("English");
         this.ngOnInit();
       })

@@ -13,22 +13,17 @@ export class SearchComponent implements OnInit {
   search: string;
   language: string;
   theme: string;
-  size: string;
-  test: string;
-  settingsArray = [];
   booksArray = [];
   settings = firebase().firestore().collection("settings");
   books = firebase().firestore().collection("books");
   chosenBook = firebase().firestore().collection("chosen");
   constructor(private router: Router) {
-    // Use the component constructor to inject providers.
   }
 
   ngOnInit(): void {
     this.settings.get().then((querySnapshot) => {
       querySnapshot.forEach((documentSnapshot) => {
         this.language = documentSnapshot.data().language;
-        this.size = documentSnapshot.data().size;
         this.theme = documentSnapshot.data().theme;
       });
     });
@@ -86,7 +81,6 @@ export class SearchComponent implements OnInit {
   }
 
   bookChosen(args: ItemEventData) {
-    console.log(` Item: ${this.booksArray[args.index]}`);
     this.chosenBook
       .doc("ZCjUOSAtGmsixwi6NeGY")
       .update(this.booksArray[args.index])

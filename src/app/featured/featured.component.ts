@@ -14,15 +14,11 @@ export class FeaturedComponent implements OnInit {
   bookmarks = firebase().firestore().collection("bookmarks");
   chosenBook = firebase().firestore().collection("chosen");
   settings = firebase().firestore().collection("settings");
-  data: any;
   language: string;
   theme: string;
-  size: string;
   booksArray = [];
-  settingsArray = [];
 
   constructor(private router: Router) {
-    // Use the component constructor to inject providers.
   }
 
   ngOnInit(): void {
@@ -35,7 +31,6 @@ export class FeaturedComponent implements OnInit {
     this.settings.get().then((querySnapshot) => {
       querySnapshot.forEach((documentSnapshot) => {
         this.language = documentSnapshot.data().language;
-        this.size = documentSnapshot.data().size;
         this.theme = documentSnapshot.data().theme;
       });
     });
@@ -47,17 +42,9 @@ export class FeaturedComponent implements OnInit {
   }
 
   bookChosen(args: ItemEventData) {
-    console.log(` Item: ${this.booksArray[args.index]}`);
     this.chosenBook
       .doc("ZCjUOSAtGmsixwi6NeGY")
       .update(this.booksArray[args.index])
-      .then((value) => {
-        if (this.language === "eng") {
-          alert("Chosen book Added");
-        } else {
-          alert("Книгу обрано");
-        }
-      })
       .catch((error) => {
         if (this.language === "eng") {
           alert("Failed to choose book:" + error);

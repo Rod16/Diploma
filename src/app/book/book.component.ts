@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { firebase } from "@nativescript/firebase-core";
 import "@nativescript/firebase-auth";
 import "@nativescript/firebase-storage";
-import { Router } from "@angular/router";
 import { RouterExtensions } from "@nativescript/angular";
 import { setTextSync } from "nativescript-clipboard";
 
@@ -16,21 +15,19 @@ export class BookComponent implements OnInit {
   bookmarks = firebase().firestore().collection("bookmarks");
   settings = firebase().firestore().collection("settings");
   url: Promise<string>;
-  myArray: Array<any> = [];
+  dataArray: Array<any> = [];
   language: string;
   theme: string;
   size: string;
   reference: string;
-  settingsArray = [];
   constructor(
-    private router: Router,
     private routerExtensions: RouterExtensions
   ) {}
 
   ngOnInit(): void {
     this.chosenBook.get().then((querySnapshot) => {
       querySnapshot.forEach((documentSnapshot) => {
-        this.myArray.push(documentSnapshot.data());
+        this.dataArray.push(documentSnapshot.data());
         this.reference = "books/" + documentSnapshot.data().id + ".pdf";
         this.url = firebase().storage().ref(this.reference).getDownloadURL();
       });
@@ -47,7 +44,6 @@ export class BookComponent implements OnInit {
 
   goBack() {
     this.routerExtensions.backToPreviousPage();
-    console.log(this.reference);
   }
 
   getLink() {
@@ -70,8 +66,8 @@ export class BookComponent implements OnInit {
 
   addBook() {
     this.bookmarks
-      .add(this.myArray[0])
-      .then((value) => {
+      .add(this.dataArray[0])
+      .then(() => {
         if (this.language === "eng") {
           alert("Book Added");
         } else {

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, NgZone, OnInit } from "@angular/core";
+import { Component, NgZone, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { Application, ItemEventData } from "@nativescript/core";
 import { firebase } from "@nativescript/firebase-core";
@@ -15,14 +15,11 @@ export class HomeComponent implements OnInit {
   books = firebase().firestore().collection("books");
   chosenBook = firebase().firestore().collection("chosen");
   settings = firebase().firestore().collection("settings");
-  data: any;
   language: string;
   theme: string;
   size: string;
   booksArray = [];
-  settingsArray = [];
   constructor(private router: Router, private zone: NgZone) {
-    // Use the component constructor to inject providers.
   }
 
   ngOnInit(): void {
@@ -47,7 +44,6 @@ export class HomeComponent implements OnInit {
   }
 
   bookChosen(args: ItemEventData) {
-    console.log(` Item: ${this.booksArray[args.index]}`);
     this.chosenBook
       .doc("ZCjUOSAtGmsixwi6NeGY")
       .update(this.booksArray[args.index])

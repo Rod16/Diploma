@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
-import { Application, knownFolders } from "@nativescript/core";
+import { Application } from "@nativescript/core";
 import { firebase } from "@nativescript/firebase-core";
 import "@nativescript/firebase-storage";
 
@@ -17,32 +17,22 @@ export class BrowseComponent implements OnInit {
   year: number;
   description: string;
   email: string;
-  id: number = 1;
-  fileArray = [];
-
-  location = "books/";
+  id: number;
+  language: string;
+  theme: string;
 
   auth = firebase().auth();
   books = firebase().firestore().collection("books");
   settings = firebase().firestore().collection("settings");
   currentId = firebase().firestore().collection("id");
-  storage = firebase().storage();
-  url = this.storage.ref("books/Lytvynenko_bakalavr_1_2.docx").getDownloadURL();
-  knownFolders = knownFolders.documents();
-  language: string;
-  theme: string;
-  size: string;
-  settingsArray = [];
 
   constructor() {
-    // Use the component constructor to inject providers.
   }
 
   ngOnInit(): void {
     this.settings.get().then((querySnapshot) => {
       querySnapshot.forEach((documentSnapshot) => {
         this.language = documentSnapshot.data().language;
-        this.size = documentSnapshot.data().size;
         this.theme = documentSnapshot.data().theme;
       });
     });
@@ -85,7 +75,7 @@ export class BrowseComponent implements OnInit {
           description: this.description,
           email: this.email,
         })
-        .then((value) => {
+        .then(() => {
           this.currentId.doc("QeJn18EbtF3inORxCPvo").update({
             id: this.id + 1,
           });
@@ -110,17 +100,4 @@ export class BrowseComponent implements OnInit {
       }
     }
   }
-
-  bookName() {
-    return this.id;
-  }
-
-  async storeBook() {
-    const bookName = this.bookName();
-    const bookRef = this.storage.ref(this.location + "05.05.docx");
-    const pathToFile = knownFolders.documents().getFile("05.05.docx");
-    await bookRef.putFile(pathToFile.path);
-  }
-
-  test() {}
 }
