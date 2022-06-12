@@ -1,6 +1,76 @@
+* {
+  color: #000;
+  --midnight-blue: #1e1f26;
+  --indigo-ink: #283655;
+  --blueberry: #4d648d;
+  --violet-blue: #d0e1f9;
+
+  --white: #fff;
+  --black: #000;
+
+  --ghost-white: #f6f8fa;
+  --lavender-gray: #c3ccd3;
+  --cadet-grey: #8ea6b2;
+  --deep-space-sparkle: #47646f;
+  --gunmetal: #1e383c;
+}
+
+.page {
+  align-items: center;
+  flex-direction: column;
+}
+
 .action-bar-title {
   font-weight: bold;
   font-size: 17;
+}
+
+.action-bar-dark {
+  background-color: var(--indigo-ink);
+  .action-bar-title {
+    color: var(--ghost-white);
+  }
+
+  .fas {
+    color: var(--ghost-white);
+  }
+}
+
+.action-bar-light {
+  background-color: var(--deep-space-sparkle);
+  .action-bar-title {
+    color: var(--ghost-white);
+  }
+
+  .fas {
+    color: var(--ghost-white);
+  }
+}
+
+.dark-page {
+  background-color: var(--midnight-blue);
+}
+
+.light-page {
+  background-color: var(--lavender-gray);
+}
+
+.title-dark {
+  color: var(--white);
+}
+
+.title-light {
+  color: var(--gunmetal);
+}
+
+.btn-light {
+  background-color: var(--ghost-white);
+  color: var(--gunmetal);
+}
+
+.btn-dark {
+  background-color: var(--blueberry);
+  color: var(--white);
 }
 
 .list-group-item {
@@ -24,17 +94,6 @@
   font-weight: bold;
   border-radius: 20%;
   font-size: 16;
-  color: #fff;
-}
-
-.btn-primary {
-  background-color: #54aaab;
-}
-
-.btn-secondary {
-  border-color: #54aaab;
-  background-color: #1c3334;
-  border-width: 2em;
 }
 
 .button-margin {

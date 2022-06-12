@@ -46,6 +46,7 @@ export class SettingsComponent implements OnInit {
         } else {
           alert("Світла тема");
         }
+        this.ngOnInit();
       })
       .catch((error) => {
         if (this.language === "eng") {
@@ -68,6 +69,7 @@ export class SettingsComponent implements OnInit {
         } else {
           alert("Темна тема");
         }
+        this.ngOnInit();
       })
       .catch((error) => {
         if (this.language === "eng") {
@@ -130,6 +132,7 @@ export class SettingsComponent implements OnInit {
       })
       .then((value) => {
         alert("English");
+        this.ngOnInit();
       })
       .catch((error) => {
         if (this.language === "eng") {
@@ -137,6 +140,7 @@ export class SettingsComponent implements OnInit {
         } else {
           alert("Не вдалося обрати мову: " + error);
         }
+        
       });
   }
 
@@ -147,7 +151,8 @@ export class SettingsComponent implements OnInit {
         language: "ua",
       })
       .then((value) => {
-        alert("Українська мова");  
+        alert("Українська мова");
+        this.ngOnInit();
       })
       .catch((error) => {
         if (this.language === "eng") {

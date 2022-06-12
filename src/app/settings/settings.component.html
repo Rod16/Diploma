@@ -1,4 +1,4 @@
-<ActionBar class="action-bar">
+<ActionBar [ngClass]="theme == 'dark' ? 'action-bar-dark' : 'action-bar-light'">
   <NavigationButton visibility="hidden"></NavigationButton>
   <GridLayout columns="50, *">
     <Label *ngIf="language === 'eng'" class="action-bar-title" text="Settings" colSpan="2"></Label>
@@ -7,23 +7,26 @@
     <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
   </GridLayout>
 </ActionBar>
-<StackLayout>
-<GridLayout columns="*, *, auto, auto" rows="auto, auto, auto" class="list-group-item">
-  <Label *ngIf="language === 'eng'" class="field" row="0" col="0" colSpan="2" [text]="'Color theme'"></Label>
-  <Label *ngIf="language === 'ua'" class="field" row="0" col="0" colSpan="2" [text]="'Кольорова тема'"></Label>
-  <Button *ngIf="language === 'eng'" class="btn btn-primary" row="0" col="2" [text]="'Light'" (tap)="onLight()"></Button>
-  <Button *ngIf="language === 'ua'" class="btn btn-primary" row="0" col="2" [text]="'Світла'" (tap)="onLight()"></Button>
-  <Button *ngIf="language === 'eng'" class="btn btn-secondary" row="0" col="3" [text]="'Dark'" (tap)="onDark()"></Button>
-  <Button *ngIf="language === 'ua'" class="btn btn-secondary" row="0" col="3" [text]="'Темна'" (tap)="onDark()"></Button>
-  <Label *ngIf="language === 'eng'" class="field" row="1" col="0" colSpan="2" [text]="'Font size'"></Label>
-  <Label *ngIf="language === 'ua'" class="field" row="1" col="0" colSpan="2" [text]="'Розмір шрифту'"></Label>
-  <Button class="btn btn-primary" row="1" col="2" [text]="17" (tap)="onSmall()"></Button>
-  <Button class="btn btn-secondary" row="1" col="3" [text]="20" (tap)="onLarge()"></Button>
-  <Label *ngIf="language === 'eng'" class="field" row="2" col="0" colSpan="2" [text]="'Language'"></Label>
-  <Label *ngIf="language === 'ua'" class="field" row="2" col="0" colSpan="2" [text]="'Мова'"></Label>
-  <Button class="btn btn-primary" row="2" col="2" [text]="'Eng'" (tap)="onEng()"></Button>
-  <Button class="btn btn-secondary" row="2" col="3" [text]="'UA'" (tap)="onUa()"></Button>
-</GridLayout>
-<Button *ngIf="language === 'eng'" class="btn btn-primary button-margin" [text]="'Log Out'" (tap)="signOut()"></Button>
-<Button *ngIf="language === 'ua'" class="btn btn-primary button-margin" [text]="'Вийти з акаунту'" (tap)="signOut()"></Button>
-</StackLayout>
+
+<FlexboxLayout class="page" [ngClass]="theme == 'dark' ? 'dark-page' : 'light-page'">
+  <StackLayout>
+    <GridLayout columns="*, *, auto, auto" rows="auto, auto, auto" class="list-group-item">
+      <Label *ngIf="language === 'eng'" class="field" [ngClass]="theme == 'dark' ? 'title-dark' : 'title-light'" row="0" col="0" colSpan="2" [text]="'Color theme'"></Label>
+      <Label *ngIf="language === 'ua'" class="field" [ngClass]="theme == 'dark' ? 'title-dark' : 'title-light'" row="0" col="0" colSpan="2" [text]="'Кольорова тема'"></Label>
+      <Button *ngIf="language === 'eng'" class="btn btn-light" row="0" col="2" [text]="'Light'" (tap)="onLight()"></Button>
+      <Button *ngIf="language === 'ua'" class="btn btn-light" row="0" col="2" [text]="'Світла'" (tap)="onLight()"></Button>
+      <Button *ngIf="language === 'eng'" class="btn btn-dark" row="0" col="3" [text]="'Dark'" (tap)="onDark()"></Button>
+      <Button *ngIf="language === 'ua'" class="btn btn-dark" row="0" col="3" [text]="'Темна'" (tap)="onDark()"></Button>
+      <Label *ngIf="language === 'eng'" class="field" [ngClass]="theme == 'dark' ? 'title-dark' : 'title-light'" row="1" col="0" colSpan="2" [text]="'Font size'"></Label>
+      <Label *ngIf="language === 'ua'" class="field" [ngClass]="theme == 'dark' ? 'title-dark' : 'title-light'" row="1" col="0" colSpan="2" [text]="'Розмір шрифту'"></Label>
+      <Button class="btn btn-light" row="1" col="2" [text]="17" (tap)="onSmall()"></Button>
+      <Button class="btn btn-dark" row="1" col="3" [text]="20" (tap)="onLarge()"></Button>
+      <Label *ngIf="language === 'eng'" class="field" [ngClass]="theme == 'dark' ? 'title-dark' : 'title-light'" row="2" col="0" colSpan="2" [text]="'Language'"></Label>
+      <Label *ngIf="language === 'ua'" class="field" [ngClass]="theme == 'dark' ? 'title-dark' : 'title-light'" row="2" col="0" colSpan="2" [text]="'Мова'"></Label>
+      <Button class="btn btn-light" row="2" col="2" [text]="'Eng'" (tap)="onEng()"></Button>
+      <Button class="btn btn-dark" row="2" col="3" [text]="'UA'" (tap)="onUa()"></Button>
+    </GridLayout>
+    <Button *ngIf="language === 'eng'" class="btn button-margin" [ngClass]="theme == 'dark' ? 'btn-dark' : 'btn-light'" [text]="'Log Out'" (tap)="signOut()"></Button>
+    <Button *ngIf="language === 'ua'" class="btn button-margin" [ngClass]="theme == 'dark' ? 'btn-dark' : 'btn-light'" [text]="'Вийти з акаунту'" (tap)="signOut()"></Button>
+  </StackLayout>
+</FlexboxLayout>
