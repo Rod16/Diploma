@@ -51,7 +51,21 @@ export class BookComponent implements OnInit {
   }
 
   getLink() {
-    this.url.then((url) => setTextSync(url));
+    this.url.then((url) => {
+      setTextSync(url);
+      if (this.language === "eng") {
+        alert("The download link was copied to clipboard");
+      } else {
+        alert("Посилання для завантаження було скопійовано до буфера обміну");
+      }
+    })
+      .catch(() => {
+      if (this.language === "eng") {
+        alert("The file is not in the database");
+      } else {
+        alert("Файлу немає в базі даних");
+      }
+    });
   }
 
   addBook() {

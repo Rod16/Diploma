@@ -76,6 +76,13 @@ export class SearchComponent implements OnInit {
           this.booksArray.push(documentSnapshot.data());
         });
       });
+    /*if (this.booksArray.length === 0) {
+      if (this.language === "eng") {
+          alert("It looks like the book you are looking for is not in our database");
+        } else {
+          alert("Схоже, що книги, яку ви шукаєте, немає в нашій базі даних");
+        }
+    }*/
   }
 
   bookChosen(args: ItemEventData) {
