@@ -32,7 +32,8 @@ export class SearchComponent implements OnInit {
   onSearch() {
     this.booksArray = [];
     this.books
-      .where("title", "==", this.search)
+      .where("title", ">=", this.search)
+      .where("title", "<=", this.search + "~")
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((documentSnapshot) => {
@@ -40,7 +41,8 @@ export class SearchComponent implements OnInit {
         });
       });
     this.books
-      .where("author", "==", this.search)
+      .where("author", ">=", this.search)
+      .where("author", "<=", this.search + "~")
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((documentSnapshot) => {
@@ -48,7 +50,8 @@ export class SearchComponent implements OnInit {
         });
       });
     this.books
-      .where("country", "==", this.search)
+      .where("country", ">=", this.search)
+      .where("country", "<=", this.search + "~")
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((documentSnapshot) => {
@@ -56,7 +59,8 @@ export class SearchComponent implements OnInit {
         });
       });
     this.books
-      .where("field", "==", this.search)
+      .where("field", ">=", this.search)
+      .where("field", "<=", this.search + "~")
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((documentSnapshot) => {
