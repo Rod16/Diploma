@@ -143,7 +143,8 @@
         <Button
           *ngIf="language === 'eng'"
           (tap)="getLink()"
-          class="btn btn-primary"
+          class="btn"
+          [ngClass]="theme == 'dark' ? 'btn-dark' : 'btn-light'"
           row="7"
           col="0"
           colSpan="3"
@@ -152,7 +153,8 @@
         <Button
           *ngIf="language === 'ua'"
           (tap)="getLink()"
-          class="btn btn-primary"
+          class="btn"
+          [ngClass]="theme == 'dark' ? 'btn-dark' : 'btn-light'"
           row="7"
           col="0"
           colSpan="3"
@@ -161,7 +163,8 @@
         <Button
           *ngIf="language === 'eng'"
           (tap)="addBook()"
-          class="btn btn-primary"
+          class="btn"
+          [ngClass]="theme == 'dark' ? 'btn-dark' : 'btn-light'"
           row="8"
           col="0"
           colSpan="3"
@@ -170,7 +173,8 @@
         <Button
           *ngIf="language === 'ua'"
           (tap)="addBook()"
-          class="btn btn-primary"
+          class="btn"
+          [ngClass]="theme == 'dark' ? 'btn-dark' : 'btn-light'"
           row="8"
           col="0"
           colSpan="3"

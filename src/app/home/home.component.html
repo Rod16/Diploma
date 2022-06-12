@@ -16,17 +16,19 @@
         columns="*, auto, *"
         rows="auto, auto, *"
         class="list-group-item"
+        [ngClass]="theme == 'dark' ? 'dark-group' : 'light-group'"
       >
         <Label
           class="title"
+          [ngClass]="theme == 'dark' ? 'title-dark' : 'title-light'"
           row="0"
           col="0"
           colSpan="3"
           [text]="item.title"
         ></Label>
-        <Label class="field" row="1" col="0" [text]="item.field"></Label>
-        <Label class="year" row="1" col="1" [text]="item.year"></Label>
-        <Label class="author" row="1" col="2" [text]="item.author"></Label>
+        <Label class="field" [ngClass]="theme == 'dark' ? 'text-dark' : 'text-light'" row="1" col="0" [text]="item.field"></Label>
+        <Label class="year" [ngClass]="theme == 'dark' ? 'text-dark' : 'text-light'" row="1" col="1" [text]="item.year"></Label>
+        <Label class="author" [ngClass]="theme == 'dark' ? 'text-dark' : 'text-light'" row="1" col="2" [text]="item.author"></Label>
       </GridLayout>
     </ng-template>
   </ListView>

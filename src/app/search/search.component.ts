@@ -37,6 +37,14 @@ export class SearchComponent implements OnInit {
   onSearch() {
     this.booksArray = [];
     this.books
+      .where("title", "==", this.search)
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((documentSnapshot) => {
+          this.booksArray.push(documentSnapshot.data());
+        });
+      });
+    this.books
       .where("author", "==", this.search)
       .get()
       .then((querySnapshot) => {

@@ -1,7 +1,18 @@
 * {
   color: #000;
-  --dark-bg-color: #1c3334;
-  --light-bg-color: #dbf8c3;
+  --midnight-blue: #1e1f26;
+  --indigo-ink: #283655;
+  --blueberry: #4d648d;
+  --violet-blue: #d0e1f9;
+
+  --white: #fff;
+  --black: #000;
+
+  --ghost-white: #f6f8fa;
+  --lavender-gray: #c3ccd3;
+  --cadet-grey: #8EA6B2;
+  --deep-space-sparkle: #47646f;
+  --gunmetal: #1E383C;
 }
 
 .page {
@@ -15,10 +26,28 @@
 }
 
 .list-group-item {
-  background-color: #fff;
   border-radius: 20px;
-  border-color: black;
   border-width: 3;
+}
+
+.dark-group {
+  background-color: var(--blueberry);
+  .text-dark {
+    color: var(--violet-blue);
+  }
+  .title-dark {
+    color: var(--white);
+  }
+}
+
+.light-group {
+  background-color: var(--ghost-white);
+  .text-light {
+    color: var(--deep-space-sparkle);
+  }
+  .title-light {
+    color: var(--gunmetal);
+  }
 }
 
 .action-bar-title {
@@ -27,55 +56,55 @@
 }
 
 .action-bar-dark {
-  background-color: var(--light-bg-color);
+  background-color: var(--indigo-ink);
   .action-bar-title {
-    color: var(--dark-bg-color);
+    color: var(--ghost-white);
   }
 
   .fas {
-    color: var(--dark-bg-color);
+    color: var(--ghost-white);
   }
 }
 
 .action-bar-light {
-  background-color: var(--dark-bg-color);
+  background-color: var(--deep-space-sparkle);
   .action-bar-title {
-    color: var(--light-bg-color);
+    color: var(--ghost-white);
   }
 
   .fas {
-    color: var(--light-bg-color);
+    color: var(--ghost-white);
   }
 }
 
 .dark-page {
-  background-color: var(--dark-bg-color);
+  background-color: var(--midnight-blue);
 }
 
 .light-page {
-  background-color: var(--light-bg-color);
+  background-color: var(--lavender-gray);
 }
 
 .input-light {
-  border-bottom-color: var(--dark-bg-color);
-  placeholder-color: #000;
+  border-bottom-color: var(--deep-space-sparkle);
+  placeholder-color: var(--deep-space-sparkle);
+  color: var(--gunmetal);
 }
 
 .input-dark {
-  border-bottom-color: var(--light-bg-color);
-  placeholder-color: #fff;
+  border-bottom-color: var(--blueberry);
+  placeholder-color: var(--blueberry);
+  color: var(--violet-blue);
 }
 
 .btn-light {
-  background-color: var(--dark-bg-color);
-  color: var(--light-bg-color);
-
+  background-color: var(--ghost-white);
+  color: var(--gunmetal);
 }
 
 .btn-dark {
-  background-color: var(--light-bg-color);
-  color: var(--dark-bg-color);
-
+  background-color: var(--blueberry);
+  color: var(--white);
 }
 
 .action-bar-title {
@@ -112,21 +141,11 @@
   font-size: 20;
 }
 
-.btn-primary {
-  background-color: #54aaab;
-}
-
-.btn-secondary {
-  border-color: #54aaab;
-  background-color: #1c3334;
-  border-width: 2em;
-}
-
 .for-background {
   border-radius: 40px;
   margin-top: 70px;
   border: none;
-  padding: 30px;
+  padding: 10px;
 }
 
 .title {
